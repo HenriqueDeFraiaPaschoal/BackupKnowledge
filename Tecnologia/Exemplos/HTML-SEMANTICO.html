@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!-- Para especificar o tipo de documento, em ajuda de sistemas legados, omitir isso pode causar em problemas na renderização. Está falando para o UserAgent que é um documento html -->
+<html lang="pt-br">
+<!-- O elemento html é o elemento raiz do arquivo html, e lang seria o idioma utilizado. Isso facilita para o UserAgent em situações como procura, tradução, etc. -->
+
+<head>
+  <!-- O head possui dados do cabeçalho do documento. Informações que podem ser trabalhadas em vários pontos. -->
+  <meta charset="UTF-8">
+  <!-- Meta data são dados sobre dados, com o charset especifica quais são os tipos de caracteres do documento. O UTF-8 abrange quase tudo necessário. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- define o tamanho da tela para o tamanho do aparelho mantendo a escala de tudo em 1-->
+  <title>Henrique Resume</title>
+  <!-- O title seria o título do documento, ele pode ser utilizado desde para identificar a aba aberta no navegador, até como será salvo nos favoritos no navegador. -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#aboutme">about me</a></li>
+      <li><a href="#services">services</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#workhistory">work history</a></li>
+      <li><a href="#portfolio">portfolio</a></li>
+      <li><a href="#mailingadress">mailing adress</a></li>
+      <li><a href="#contactme">contact me</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Resume</h1>
+    <section>
+      <h2>Henrique de Fraia Paschoal</h2>
+      <p>
+        Game developer, civil engineer, programmer
+      </p>
+      <dl>
+        <dt>Website</dt>
+        <dd><a href="" target="_blank">xxxxxxxxxx</a></dd>
+        <dd><a href="" target="_self">yyyyyyyyyy</a></dd>
+        <dt>Phone</dt>
+        <dd>xxxxxxxxxxx</dd>
+        <dt>Instagran</dt>
+        <dd><a href="">xxxxxxx</a></dd>
+      </dl>
+    </section>
+    <article id="aboutme">
+      <header>
+        <h2>About me</h2>
+      </header>
+      <p>
+        Olá! Meu nome é Henrique sou um desenvolvedor de games formado em desenvolvimento de software multiplatadorma e
+        engenharia civil. Fico <en>feliz</en> em poder <strong>ajudar</strong> e colaborar com projetos interessantes!
+      </p>
+      <aside><p>
+        <strong>Aprender e improvisar são as melhores ferramentas</strong> de um profissional que busca se
+          introduzir à um mercado cada dia mais ausente disto!
+      </p></aside>
+      <footer>
+        Contact me
+      </footer>
+    </article>
+    <section id="services">
+      <h2>Services</h2>
+      <ul>
+        <li>Construction planning and projects</li>
+        <li>Game developments</li>
+        <li>Sites developments</li>
+      </ul>
+    </section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML - Markup your site semantically correct.</li>
+        <li>CSS - Keep it responsive and visually interesting.</li>
+        <li>JavaScript - Use dinamic functions to make it pop!</li>
+        <li>Java - Manage your back-end with useful functions.</li>
+        <li>React - Use one of the most popular framework on your site.</li>
+        <li>AWS - Manage the I.T. of company with some of the best tools in the market!</li>
+        <li>Portugol - Teach your students the basics of programming with a brazilian tool!</li>
+      </ul>
+    </section>
+    <section id="workhistory">
+      <h2>Work History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Company</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Civil Engineer</td>
+            <td>RM Architectural Projects</td>
+            <td>2 Years</td>
+          </tr>
+          <tr>
+            <td>Game Developer</td>
+            <td>Indie Producer</td>
+            <td>1 Year</td>
+          </tr>
+          <tr>
+            <td>Trainee</td>
+            <td>Compass UOL</td>
+            <td>6 months</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">Design and T.I. time</td>
+            <td>3.5 years</td>
+          </tr>
+        </tfoot>
+      </table>
+      <ol reversed>
+        <li>
+          Civil Engineer
+          RM Architectural Projects
+          2 years
+        </li>
+        <li>
+          Game Developer
+          Indie Producer
+          1 year
+        </li>
+        <li>
+          Trainee
+          Compass UOL
+          6 months
+        </li>
+      </ol>
+    </section>
+    <section id="portfolio">
+      <h2>portfolio</h2>
+      <!-- Colocar links -->
+    </section>
+    <section id="mailingadress">
+      <h2>Mailing Adress</h2>
+      <adress>
+        Rua dos games Nº 500<br />
+        Franca - SP, Brasil
+      </adress>
+    </section>
+    <section id="contactme">
+      <h2>Contact me</h2>
+      <form action="dosomething.html" method="post">
+        <p>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name">
+        </p>
+        <p>
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email">
+        </p>
+        <p>
+          <label for="whycontacting">Why contacting</label>
+          <select name="whycontacting" id="whycontacting">
+            <option value="jobinterview">Job Interview</option>
+            <option value="needcontractor">Need contractor</option>
+          </select>
+        </p>
+        <p>
+          <label for="comments">Comments</label>
+          <textarea name="comments" id="comments" cols="30" rows="3"></textarea>
+        </p>
+        <fieldset>
+          <legend>Best Contact Time</legend>
+          <p>
+            <label for="contacttime1">Morning</label>
+            <input type="radio" id="contacttime1" name="contacttime" value="morning">
+          </p>
+          <p>
+            <label for="contacttime2">Afternoon</label>
+            <input type="radio" id="contacttime2" name="contacttime" value="afternoon">
+          </p>
+          <p>
+            <label for="contacttime3">Evening</label>
+            <input type="radio" id="contacttime3" name="contacttime" value="evening">
+          </p>
+          <p>
+            <label for="asap">ASAP</label>
+            <input type="checkbox" name="asap" id="asap">
+          </p>
+        </fieldset>
+        <p><button type="submit">Send</button></p>
+
+      </form>
+
+    </section>
+  </main>
+</body>
+
+</html>
