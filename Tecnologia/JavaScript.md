@@ -13,8 +13,9 @@ block scope
 function scope
 global scope
 
-## Instalação do NODE
+## Instalação
 
+### Node
 Pq instalar o node?
 Várias bibliotecas que podem ser utilizados futuramente para o desenvolvimento, podem necessitar do node instalado para sua execução.
 npm -> Node Package Manager

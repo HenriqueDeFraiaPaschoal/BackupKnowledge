@@ -1,10 +1,55 @@
+## Terminal
+extensão VSCODE Python para executar programas python
+no terminal digitar python3 nomeArquivo ---> executa o arquivo .py
+no terminal digitar python3 ---> faz uma execução rápida de python, podendo fazer alguns testes rápidos sem necessidade de criar arquivos
+linux--> Python3 --version
+windows--> python --version
+
+
+
+### Notation
+// -> resultado de expressão
+// > texto que será impresso em console.log
+// apenas um comentário
+
+### Condicionais
+if (condição) {
+	bloco de código
+}
+
+### funções
+
+
+def nomeFunção param1,param2,param3,...:
+	processo
+	return
+
+função:
+def nome (parâmetros,...):
+	lógica
+	return
+
+funções lambda (funções simples de retorno simples)
+Ex. S = lambda x,y: x+y
+
+### Comentários
+"""  
+	Caixa de comentário: mais utilizado para descrever a função
+"""  
+`# Comentário de linha`
+
+
+
 # TypeScript
-TypeScript é um superSet de JavaScript. A linguagem do javaScript adicionado de outra funções.
-Em typeScript a tipagem não é mais dinâmica. Logo não é possível atribuir um valor de tipagem diferente à uma variável que já foi inicializada com outra tipagem.
-TS não é executado por navegadores/node, é necessário converter. Esta conversão não é apenas de linguagem do typescript para javascript, também pode ser de typescript moderno para javascript antigo.
-A 'funcionalidade' dele é, ajudar durante a complicação/desenvolvimento, encontrar erros de lógica e tipagem no código. Ele não muda nada no 'runtime' do código. 
-Extensão .ts
-Instalando:
+[TypeScript (TS)](https://pt.wikipedia.org/wiki/TypeScript) é um superSet de JavaScript (linguagem do javaScript adicionado outras funções).
+A 'funcionalidade' dele é: ajudar durante complicação/desenvolvimento, encontrando erros de lógica e tipagem no código. Ele não muda nada no 'runtime' do código.  
+TypeScript não possui tipagem dinâmica. Não é possível atribuir um valor de tipagem diferente à uma variável que já foi inicializada com outra tipagem.  
+TS não é executado por navegadores/node, é necessário converter/compilar. Esta conversão não é apenas de linguagem do typescript para javascript, também pode ser de typescript moderno para javascript antigo.
+
+> Extensão: .ts
+
+## Instalação:
+É necessário instalar as [ferramentas do typescript](https://www.typescriptlang.org/) (junto com as do [node](./JavaScript.md))
 npm install -g typescript
 
 tsc file.ts -> compila o arquivo em javascript
@@ -13,6 +58,20 @@ tsc file.ts --watch ou -w -> Deixa um arquivo sendo "observado" e atualizando a 
 tsc --init -> transforma o diretório em um diretório observado por typescript
 após isso rodar tsc no terminal compila todos arquivos ts
 tsc --watch -> observa todo o diretório por salvamentos e compilando novamente
+
+## Sintaxe
+Segue a mesma sintaxe de javascript adicionado alguns elementos:
+
+| Tipagem |    |     |            |      |     |       |         |     |
+| :--: | :---: | :-: | :--------: | :--: | :-: | :---: | :-----: | :-: |
+| array | tuple | string | object | boolean | number* | float | enum | string |
+|x type[] = [1,2]|x [type1, type2,...] =(1,4,...)|x string = 'oi'|x: object = {'nome': 'Diego, 'n': 2} x: {nome: string; n: number} = {'nome': 'Diego, 'n': 2}| x boolean = true | 1,2 | 10.3 | enum Role = { ADMIN, READ_ONLY, AUTHOR } | 'oi' "olá"|
+
+> *number e o tipo para todos numerais, float, int,long, etc. Para o TS todos são float
+>Tuple é um array com tamanho e tipos fixos
+>Enum da valores incrementais para as "labels" criadas. Caso o primeiro valor n seja definido, iniciará em 0
+Associação?
+| in | not in |
 
 ### Tsconfig.json
 Muitas das configurações comentadas, apesar de comentadas, já possui valores padrões e estão ativas. O uso delas são em situações específicas.
@@ -85,6 +144,7 @@ Quase a mesma coisa de any, mas ele ainda é verificado. Seria um any mantendo a
 ### Never
 Uma função que retorna nada devido uma pausa/break/error ou que fica em um loop infinito. Uma função pode ter o retorno de tipo never
 
+### Bibliotecas
 
 class Department {
   private name: string;

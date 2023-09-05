@@ -42,7 +42,7 @@ Reading
 | 455-495|   C1  | avançado |
 
 ## Testes
-| Toeic 29/04/2023 | Listening 490(C1 490-495) | Reading 415(B2 275-400) | 
+| Toeic 29/04/2023 | Listening 490(C1 490-495) | Reading 415(B2 385-455) | 
 
 ## Links Úteis
 [Resultado TOEIC](https://linksglobal.com.br/resultados/)

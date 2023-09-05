@@ -7,31 +7,35 @@
 
 ### Git
 Desenvolvido por Linus Torvalds para o desenvolvimento do kernel Linux, o [Git](https://pt.wikipedia.org/wiki/Git) é uma ferramenta de versionamento de arquivos open-source mais utilizada no mercado.  
-Possui funcionalidades que facilitam verificar quando, o que e por quem e onde houve alterações em arquivos. Motivando implementação de testes/experimentos que podem ser reversíveis conforme as marcações feitas.  
+Possui funcionalidades que facilitam verificar quando, o que e por quem e onde houve alterações em arquivos. Motivando implementação de testes/experimentos que podem ser reversíveis e rasteáveis conforme as marcações feitas.  
 Sua versão mais atual junto à sua documentação pode ser encontrada em: https://git-scm.com/
 
 Principais características:
-- Não necessita de conexão com internet
-- Grátis e código aberto
-- Sistema de controle de versionamento
-- Guarda trajetória das mudanças, não cópias dos arquivos
-- Utilizando o prompt de comando
+- Offline: Não necessita de conexão com internet.
+- Grátis e código aberto.
+- Sistema de controle de versionamento.
+- Guarda trajetória das mudanças, não cópias dos arquivos.
+- Necessita do prompt de comando.
+
+```
+  sudo apt-get install git-all
+```
   
 ### GitHub
-O [GitHub](https://en.wikipedia.org/wiki/GitHub) é uma plataforma de hospedagem de código muito utilizada como ponte de conexão para arquivos que serão trabalhados em equipe com uso de git.
-Possuí várias funcionalidades para facilitar a comunicação/trabalho em equipe junto à aprovações de modificações/versionamentos.
-A plataforma permite que repositórios públicos possam colocar sites simples na internet com livre acesso [GitHub-Pages](https://docs.github.com/pt/pages/getting-started-with-github-pages/about-github-pages).
+O [GitHub](https://en.wikipedia.org/wiki/GitHub) é uma plataforma de hospedagem de código muito utilizada como ponte de conexão para arquivos que serão trabalhados em equipe com uso de git.  
+Possuí várias funcionalidades para facilitar a comunicação/trabalho em equipe junto à aprovações de modificações/versionamentos.  
+A plataforma permite que repositórios públicos possam colocar sites simples na internet com livre acesso [GitHub-Pages](https://docs.github.com/pt/pages/getting-started-with-github-pages/about-github-pages).  
 A plataforma está acessível em: https://github.com/
 
 Principais características:
-- Gratuito para os serviços mais usuais
-- Acessível globalmente (necessita de internet)
-- É um repositório(pasta) para guardar códigos/arquivos
-- Pode ser utilizado pelo prompt de comando ou pelo site
+- Acessível globalmente (necessita de internet).
+- Gratuito para os serviços mais usuais.
+- É um repositório(pasta) para guardar códigos/arquivos.
+- Pode ser utilizado pelo prompt de comando ou pelo site gráficamente.
 </details>
 
 ## Repositórios
-  Repositórios podem ser considerados como pastas ou diretórios de um computador onde foi iniciado um versionamento utilizando git.
+  Repositórios são como pastas ou diretórios onde foi iniciado um versionamento utilizando em um computador.
   Um repositório git possui obrigatoriamente no diretório principal/pai o diretório oculto:  
   - **.git**: diretório com arquivos gerenciadores do versionamento do repositório.  
     - Deletar esse diretório "desversiona" a pasta no estado atual
@@ -41,18 +45,24 @@ Principais características:
   - Arquivo: 'nome arquivo'
   - Tipagem: *.'extensão' Ex: *.orig (arquivos de merge)
   - Diretório: diretório/  
-  - Caso ignorado tipagem, pode-se escolher arquivo a NÃO ser ignorado com !arquivo.extensão
-  Utilizando quebra de linha a cada arquivo.
+  - Caso ignorado uma tipagem, pode-se escolher arquivo do tipo a NÃO ser ignorado com !arquivo.extensão
+
+  Utiliza-se quebra de linha a cada arquivo.
 
   O versionamento do git e github funcionam focados em 4 áreas:
 - **working directory**: diretório de trabalho, diretório padrão.
 - **Staging area**: local onde as mudanças podem ser armazenadas para depois ser commitadas/versionadas.
 - **repository/commited**: Mudanças já versionadas e salvas.
-- **remote**: seria a ultima etapa no fluxo de trabalho onde as mudanças são submetidas para uma plataforma online. Onde no comando origin é um alias para a URL que será cadastrada.
+- **remote**: seria a ultima etapa no fluxo de trabalho onde as mudanças são submetidas para uma plataforma online. Onde no comando push, origin é um alias para a URL que será cadastrada.
 
 ## Comandos
-Recomendável ler sobre comandos do [Linux](/Linux.md)
-As aspas simples foram utilizadas para demonstrar textos que podem/devem ser alterados conforme situação
+Recomendável ler sobre comandos do [Linux](./Linux.md)  
+Os comandos seguem o padrão:  
+- Comando
+- < Escrita definida pelo usuário >
+- [ abreviação | especificação ]
+
+Exemplo: git commit [ -m | msg ] < Descrição commit >
 
 <details open>
 <summary>
@@ -63,12 +73,23 @@ As aspas simples foram utilizadas para demonstrar textos que podem/devem ser alt
 renomear/recortar-corlar arquivos e copiar e renomear arquivos muito semelhantes, pode causar confusão no git onde, apesar do resultado final ser o mesmo, a ação que foi considerada para chegar naquele resultado pode estar equivocada
 [Git comandos](https://git-scm.com/docs)
 
-git help 'comando': mostra detalhes sobre o comando
+git help < comando >: mostra detalhes sobre o comando  
+Apertar a tecla Q sairá da visualização da ajuda do comando  
 
-#### Básicos
-- **git config --global user.name "'Seu nome'"**: Configura o nome do usuário
-- **git config --global user.email "'Seu email'"**: Configura o email do usuário
-- **git init 'Nome diretório'**: Inicia o versionamento na pasta atual 
+#### Configurações
+- **git --version**: Mostra a versão do git instalada
+- **git config [ --global ] user.name "< Seu nome >"**: Configura o nome do usuário
+- **git config [ --global ] user.email "< Seu email >"**: Configura o email do usuário
+- **git config [ --global ] [ --list ]**: Mostra as configurações globais
+- **git config --global alias.'nomeComando' "< comando >"**
+  - Ex. git config --global alias.'hist' "log --all --oneline --graph --decorate"
+- **git config [ --global ] core.editor "< code --wait >"**: Define o vscode como editor das configurações do git
+- **code < ~/.gitconfig >**: Busca a configuração do git(a qual costuma ficar no root do computador)
+- **git config [ --global ] init.defaultBranch < main >**: Muda o padrão da branch principal, o ideal é colocar como main. Master está desatualizado com os padrões de mercado
+- **git branch [ -m ] < main >**: Muda o nome da branch principal no repositório atual
+
+### Básicos
+- **git init 'Nome diretório'**: Inicia o versionamento na pasta atual, caso omitido o nome, versiona a pasta atual
 - **git status**: Mostra o status da branch atual
 - **git add 'nome do arquivo'**: Manda as modificações do arquivo para a staging area
   - . : Adiciona tudo do diretório atual e abaixo
@@ -77,7 +98,7 @@ git help 'comando': mostra detalhes sobre o comando
 - **git commit**: Abre o editor de texto para mandar o commit
 - **git commit -m 'descrição'**: Manda tudo que estava na staging area etiquetado com a descrição (m de message)
 - **git commit -am 'etiqueta'**: Manda as mudanças de arquivos monitorados para o staging e commita  
-- **git ls-files**: Mostra os arquivos do git
+- **git ls-files**: Mostra os arquivos que estão sendo versionados pelo git
 - **git rm "file"**: remove o arquivo e já adiciona a mudança ao stage
 - git --version
 
@@ -90,14 +111,6 @@ git help 'comando': mostra detalhes sobre o comando
 - **git log -- 'nomeArquivo'**: Mostra os commits que abrangeram aquele arquivo
 - **git log --follow -- 'nomeArquivo'**: Mostra os commits que abrangem aquele arquivo, mesmo se tiver sido renomeado
 - **git show 'idCommit'**: Mostra detalhes de um commit
-
-#### Configurações
-- **git version**: Mostra a versão do git instalada
-- **git config --global user.name "'Seu nome'"**: Configura o nome do usuário
-- **git config --global user.email "'Seu email'"**: Configura o email do usuário
-- **git config --global --list**: Mostra as configurações globais
-- **git config --global alias.'nomeComando' "'comando'"**
-  - Ex. git config --global alias.'hist' "log --all --oneline --graph --decorate"
 - **git reflog**: mostra tudo que foi feito nos ultimos 90dias
 
 #### Comparação
@@ -111,12 +124,13 @@ git help 'comando': mostra detalhes sobre o comando
 
 #### Stage
 - **git reset**: Tira as alterações do stage
+- **git reset HEAD < nome arquivo >**: Reseta o arquivo para a versão da HEAD(geralmente ultimo commit)
 
 migração de master para main
 - **git branch -m main** --->
 - **git init -b main 'Diretório'** --->
 - **git config --global init.defaultBranch main** --->
-- git branch ---> mostra as branchs locais
+- git branch ---> mostra as branchs locais, marcando a atual com *
 - git branch -a ---> mostra local e as cópias locais das remote branches
 - git branch -r ---> mostra as cópias locais das remote branches
 - git branch 'nome-branch' ---> cria uma branch
@@ -127,6 +141,7 @@ migração de master para main
 - git push --delete 'branch' --> para deletar uma branch do github e local
 - git branch --track branchname origin/branchname ---> cria uma branch com uma trackingbranch
 - git checkout 'nomeBranch' ---> muda para a branch
+- git checkout --< nome arquivo >: Reseta o arquivo para a ultima versão commitada
 - git checkout . ou git restore .---> reverte todas alterações até o ultimo commit
 - git switch 'nomeBranch' ---> muda para a branch
 - git checkout 'idCommit' ---> muda para o commit na branch atual
@@ -205,6 +220,8 @@ lightweighttag são como a HEAD das branchs, anotatedtags
 - git push origin 'tag' ---> atualiza o github apenas com a tag (se o commit da tag n estive la, ele será subido tbm)
 - git push origin master --tags ---> atualiza todas as tags
 - git push origin :'nomeTag' ---> deleta a tag remota
+- git push --setupstream origin < nome >: primeiro push para a remoto?
+- git push -u origin < nome >: Torna a branch acessivel e manda as alterações para a remota?
 </details>
 
 <details>
@@ -220,6 +237,9 @@ lightweighttag são como a HEAD das branchs, anotatedtags
 - git fetch ---> busca todas as alterações remotas incluindo outras branchs
 - git fetch origin 'branch' ---> busca uma branch específica
 origin é o nome do repositório remoto, pode ser qualquer nome
+- git remote [ -v ]: Verifica o repositório atual?
+- git remote [ -v ] < nome >: Cria uma branch remota com o nome dado?
+- git remote [ -d ] < nome >: Deleta a branch remota com o nome dado?
 </details>
 
 ## Utilitários GitHub
@@ -230,12 +250,18 @@ origin é o nome do repositório remoto, pode ser qualquer nome
 ### issues
 
 ## Commits
-`:emoji:<Tipo>[Resumo] Descrição`
+`:emoji:<Tipo>[Resumo/escopo]: Descrição`
 Tipos:
 - FIX: Resolvendo bug ou consertando algo. 
-- REVERT
-- CHORE:
-- 
+- FEAT: Inicia a implementação de uma funcionalidade
+- CHORE: Trabalho em progresso de uma funcionalidade
+- REFACTOR: Ajuste sem mudar lógica - refatoração
+- TEST: Implementa testes automatizados
+- STYLE: Mudanças de formatação do código - Lint
+- PERF: Ajustes de performance
+- DOCS: Insere documentação
+- CI: Ajuste nas configurações do CI (automoção)
+- BUILD: Ajuste nas configurações de build
 
 ## Fluxo de trabalho
 

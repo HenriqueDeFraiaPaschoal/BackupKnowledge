@@ -14,7 +14,9 @@ jar -tvf arquivo.jar (table of contents, verbose, file)
 jar -xvf arquivo.jar (extract verbose file)
 
 
-Tipagem 
+Tipagem
+
+? extends ClassName // ? pode ser um tipo qualquer, utilizado quando o tipo da variável não importa
 
 void (Apenas para funções, usado para funções que não retornam nada)
 
@@ -132,6 +134,7 @@ F6 ---> executa o código principal
 System.out.print("texto") ---> imprimi no console sem quebra de linha após  
 System.out.println("texto") ---> imprimi no console com quebra de linha após  
 System.out.printf(%s%n%s... "texto","texto") ---> imprimi de força mais simplicada vários textos.
+
 import java.util.Scanner; ---> importa as funções de "input" pro java
 
 final = const
@@ -189,6 +192,7 @@ LinkedList
 
 HashSet(Não aceita valores repetidos e a ordem de entrada não é mantida)
 LinkedHashSet(Não aceita valores repetidos e a ordem de entrada é mantida)
+TreeSet(é guardado os valores em ordem(numerica, alfabetica,etc.))
 
 List<type> li = new ArrayList<type>(hashSet); criar uma lista com conteudo de um hashset
 
@@ -223,8 +227,72 @@ for(String value: variable) { // coloca o tipo das variáveis do array e cada va
   sysout(value);
 }
 
+// o ultimo tipo pode ser omitido, ele será igual ao o tipo da variável
+HashMap<KeyType, ValueType> dictionary = new HashMap<KeyType, Value,Type>();
+LinkedHashMap<KeyType, ValueType> dictionary = new LinkedHashMap<KeyType, Value,Type>();
+TreeMap<KeyType, ValueType> dictionary = new TreeMap<KeyType, Value,Type>(); (guarda os itens em ordem alfabetica, numericas, etc)
+dictionary.put(key, value);
+for (KeyType x: dictionary.keySet()) {sysout(x)}
+for (KeyType x: dictionary.keySet()) {sysout(dictionary.get(word))}
+for (Map.Entry<KeyType, ValueType> x: dictionary.entrySet()) {
+  sysout(x.getKey());
+  sysout(x.getValue());
+}
+
+
+implements Comparable<Employee>
+
+public int compareTo(Employee o) {
+  if(this.salary < o.salary) {
+    return -1; // menor
+  } else if (this.salary > o.salary) {
+    return 1; // maior
+  }
+  return 0; // igual
+}
+
+
+## Generics
+
+
+## multthread
+can't start a thread more than once in the same instance
+
+Thread.currentThread().setName(); // pega o nome da thread
+Thread.currentThread().getName(); // pega o nome da thread
+
+try{
+Thread.sleep(10); //para por 10 milisegundos
+} catch (InterruptedException e) {
+  sysout(e)
+}
+
+psvm () {
+  Task taskRunner = new Task();
+  taskRunner.start();
+  sysout("Hello");
+}
+
+
+class Task extends Thread {
+  public void run() {
+    for(int i=0; i < 1000; i++) {
+      sysout("Number", i)
+    }
+  }
+}
+
+
+synchronized { codeBlock }
+synchronized (this) { codeBlock } // para instâncias de objetos
+ou adicionar na classe
+publick synchronized int getNext() {
+  code block
+}
+
 
 boas práticas
 criar toString
 criar o construtor
 criar o equals e hash
+criar compareTo

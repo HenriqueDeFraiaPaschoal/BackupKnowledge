@@ -2,7 +2,7 @@
 [Linux](https://pt.wikipedia.org/wiki/Linux) é um termo usado para referir à sistemas operacionais baseados em Kernel Linux, desenvolvido por [Linus Torvalds](https://pt.wikipedia.org/wiki/Linus_Torvalds), que é um sistema operacional open-source (código aberto).
 Este, como outros sistemas, é baseado em [Unix](https://pt.wikipedia.org/wiki/Unix), um sistema operativo. Tudo em Unix são ou processos ou arquivos, e o sistema operacional facilita a comunicação do usuário com esse sistema operativo.
 
-Essa comunicação possui vários componentes/participantes, hardware (peças/equipamentos), [BIOS](https://pt.wikipedia.org/wiki/BIOS) (Sistema básico de entrada e saída), [kernel](https://pt.wikipedia.org/wiki/N%C3%BAcleo_(sistema_operacional)) (gerenciador de recursos, ponte aplicativos->hardware), sistemas operacionais, aplicativos/sistemas operacionais e usuários. Com a ajuda deste documento, iremos trabalhar em partes dessa comunicação.
+Essa comunicação possui vários componentes/participantes: hardware (peças/equipamentos), [BIOS](https://pt.wikipedia.org/wiki/BIOS) (Sistema básico de entrada e saída), [kernel](https://pt.wikipedia.org/wiki/N%C3%BAcleo_(sistema_operacional)) (gerenciador de recursos, ponte entre aplicativos e o hardware), aplicações/sistemas operacionais e usuários. Com a ajuda deste documento, iremos trabalhar em partes dessa comunicação.
 
 Resumo do [autor](https://br.linkedin.com/in/henrique-de-fraia-paschoal-113b4111a?original_referer=https%3A%2F%2Fwww.google.com%2F):
 
@@ -21,10 +21,10 @@ Os focos podem ser segurança, utilização ou até apenas visual.
 
 Como preferência do [autor](https://br.linkedin.com/in/henrique-de-fraia-paschoal-113b4111a?original_referer=https%3A%2F%2Fwww.google.com%2F) deste documento, a distro utilizada é o Ubuntu, mas muitos dos comandos também podem ser utilizados em outros sistemas operacionais.
 
-## Instalações
-sudo dpkg -i package_file.deb.
+## Instalação do sistema operacional
 
-## Comandos
+
+## Terminal
 
 Existem vários tipos de [Shell](https://pt.wikipedia.org/wiki/Shell_(computa%C3%A7%C3%A3o)) (Interface de Usuário) com linha de comando (CLI - Command Line Interface) ou interface gráfica (GUI - Graphical User Interface). Funcionam como um sistema de comunicação entre o sistema operacional, o usuário e o kernel.
 
@@ -33,62 +33,54 @@ Entre os CLI os principais são: SH, BASH, CSH, TCSH e ZSH.
 O foco deste documento será no [BASH](https://pt.wikipedia.org/wiki/Bash).
 
 Dentro do UNIX tudo pode ser ser separado em arquivos e processos. Fazer algo é um processo, todo processo possui seu PID(Process Identifier) com proprietário do processo, seção do shell, se está funcionando ou parado.
-Tudo mais são arquivos, os arquivos são organizados em hierarquia de raiz.
+Tudo mais são arquivos, os arquivos são organizados em [hierarquia de raiz ou árvore](https://pt.wikipedia.org/wiki/%C3%81rvore_(estrutura_de_dados)).
 
 Os comandos abaixo podem ser utilizados no terminal, sendo no Ubuntu o atalho para abri-lo Ctrl+Alt+T, ou abra aplicativos e pesquise por terminal.
-Utilizar TAB para completar nomes de arquivos.
 
-### Básicos
-
-Foi separado nas tabelas abaixo seguindo, mas não obrigatóriamente, o padrão de:
-
-- Comando (comando e entre parênteses seu significado)
-- Anexo TipoA (especificações usuais do comando entre colchetes [ ] e separados por |, normalmente podem ser combinados)
-- Anexo TipoB (especificações que podem mudar (nomes, arquivos, diretórios) e entre aspas ' ')
-- Descrição (Descreve o comando e seus anexos, entre chaves { }).
-
-> comando [Anexo A] 'diretório' ---> (Comando por Extenso) {Descrição}
-
+### Terminologias
 A palavra [diretório](https://pt.wikipedia.org/wiki/Diret%C3%B3rio_(computa%C3%A7%C3%A3o)) pode ser conhecida como pasta.
 
+### Atalhos e opções do terminal:  
+Utilizar TAB para completar nomes de arquivos.  
+Utilizar Ctrl+C para terminar operações  
 
-#### Ajuda e coringas
 
-Caso queira encerrar algum processo, utiliza crtl+C para encerrar o processo.
+### Comandos de ajuda e básicos
+Comandos em negrito e itálicos representam os [comandos para windows](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands).  
+Os comandos apresentados seguem, mas não obrigatóriamente, o padrão/ordem de:
 
+- **Comando** < especificação > [anexo/opção | versão abreviada] {descrição ***windows equivalente***}
+
+Ex:
+> **ls** [--all | -a]: {List All Directories, lista todos os diretórios}
+  - -a: lista todos os diretórios
+
+
+#### Ajuda
 Qualquer dúvida utilize os comandos de ajuda
 
-- man 'comando' ---> (Manual) {Mostra o manual do comando}
+- **man** < comando >: {Mostra o manual do comando}
   - *Q* : Sai do manual.
-- whatis 'comando' ---> {Mostra um resumo breve do que é o comando}
-- apropos 'palavra'---> {Busca um comando que tenha a palavra}
-- 'comando' --help ---> {Mostra um documento de ajuda sobre o comando}
+- **whatis** < comando >: {Mostra um resumo breve do que é o comando}
+- **apropos** < palavra >: {Busca um comando que tenha a palavra}
+- < comando > [ --help ]: {Mostra um documento de ajuda sobre o comando}
 
-Ou utilize os caracteres coringas
+#### Básicos
 
-O caracter ? pode substituir por um caracter desconhecido.
->Poderia pesquisar por ?arina.txt caso não lembre se o nome é Carina ou Karina
-
-O caracter asterisco * pode representar todos ou continuação
-> wc * contaria todos arquivos<br>
-> ls *.txt listaria todos os arquivos com extensão .txt
-
-Comandos em negrito e itálicos representam os [comandos para windows](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands)
-
-- **clear** ***cls***: limpa o terminal
-- **cd** 'diretório' ---> (Change Directory) {Muda de Diretório}
-  - Ex:<br>
-    */* : é o root<br>
-    *~* : é o home do usuário<br>
-    *.* : é o atual<br>
-    *..* : diretório pai/anterior
-- **ls** ***dir*** -[ a ] ---> (List Directory Contents) {Lista arquivos no diretório atual}<br>
-  - Asterisco pode ser utilizado para mostrar os arquivos e subarquivos do diretório
-  - *a* : Inclui arquivos ocultos
-- **mkdir** 'nome' ---> (Make Directory) {Cria um diretório com o nome escolhido}
-  - -p direc/direc/...: cria o caminho de diretórios
-- **pwd** ---> (Print current Working Directory) {Mostra o caminho do root até o diretório}
-- **touch** 'nome'.{'numeroInicial'..'numeroFinal'}.'extensão' ---> {Cria um ou mais arquivos vazios com a extensão especificada}
+- **clear** : {Limpa o terminal ***cls***}  
+- **cd** < diretório >: {Change Directory - Muda de Diretório}  
+  */* : é o root  
+  *~* : é o home do usuário  
+  *.* : é o atual  
+  *..* : diretório pai/anterior
+- **ls** < opcional > [ -a ]: {List Directory Contents - Lista arquivos no diretório atual ***dir***}  
+  *: pode ser utilizado para mostrar os arquivos e subarquivos do diretório  
+  *a* : Inclui arquivos ocultos
+- **mkdir** < nome > [ -p ]: {Make Directory - Cria um diretório com o nome escolhido}
+  -p < direc/direc/.../nome > : cria o caminho de diretórios
+- **pwd**: {Print current Working Directory - Mostra o caminho do root até o diretório}
+- **touch** < nome.extensão >: {Cria um ou mais arquivos vazios com a extensão especificada}  
+  < nome{0..10}.extensão >:
   - Ex1. touch listaCompras.txt
   - Ex2.touch Funcionário{1..10}.txt
 - **cp** -[ i ] 'arquivoACopiar' 'nomeDaCopia' ---> (Copy) {Cria uma cópia do arquivo com primeiro nome, nomeando a copia com o segundo nome}
@@ -118,7 +110,18 @@ Comandos em negrito e itálicos representam os [comandos para windows](https://l
   - *c* : Mostra só a quantidade de bytes
   - *m* : Mostra só a quantidade de caracteres
 
-### Intermediários
+### Intermediários e instalações
+
+sudo dpkg -i package_file.deb.
+
+Ou utilize os caracteres coringas
+
+O caracter ? pode substituir por um caracter desconhecido.
+>Poderia pesquisar por ?arina.txt caso não lembre se o nome é Carina ou Karina
+
+O caracter asterisco * pode representar todos ou continuação
+> wc * contaria todos arquivos<br>
+> ls *.txt listaria todos os arquivos com extensão .txt
 
 - **cat** > 'nome' ---> 
   - Escreva o que deseja ser o conteúdo e aperte ctrl+D
