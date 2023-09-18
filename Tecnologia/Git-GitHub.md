@@ -91,13 +91,14 @@ Apertar a tecla Q sairá da visualização da ajuda do comando
 ### Básicos
 - **git init 'Nome diretório'**: Inicia o versionamento na pasta atual, caso omitido o nome, versiona a pasta atual
 - **git status**: Mostra o status da branch atual
-- **git add 'nome do arquivo'**: Manda as modificações do arquivo para a staging area
+- **git add [ -f ] 'nome do arquivo'**: Manda as modificações do arquivo para a staging area
   - . : Adiciona tudo do diretório atual e abaixo
   - *-A* : Adicionar tudo e verificar arquivos que foram movidos, renomeados, criados ou deletados
   - *-u* : Verifica renomeação e movimentação de arquivos
+  - *-f* : Força a adição de um arquivo/diretório mesmo que esteja no gitignore
 - **git commit**: Abre o editor de texto para mandar o commit
 - **git commit -m 'descrição'**: Manda tudo que estava na staging area etiquetado com a descrição (m de message)
-- **git commit -am 'etiqueta'**: Manda as mudanças de arquivos monitorados para o staging e commita  
+- **git commit -am 'etiqueta'**: Manda as mudanças de arquivos monitorados para o staging e commita
 - **git ls-files**: Mostra os arquivos que estão sendo versionados pelo git
 - **git rm "file"**: remove o arquivo e já adiciona a mudança ao stage
 - git --version
